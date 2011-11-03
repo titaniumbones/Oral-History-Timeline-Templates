@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html dir="ltr" lang="en-US">
+   <head>
+      <meta charset="UTF-8" />
+      <!-- You will need to customize this for your final project so it 
+           displays properly in your browser title bar-->
+      <title>Sample Individual Timeline &amp; Essay</title>
+      <!-- Any styling you want to do, needs to be done in ../style.css -->
+      <link rel="stylesheet" type="text/css" media="all" href="../style.css" />
+
+      <!-- load the SIMILE timeline code directly from MIT -->
+      <script src="http://simile.mit.edu/timeline/api/timeline-api.js" type="text/javascript"></script>
+<!-- This <link> group tells the page to get the data for the Exhibit from a specified Google Docs spreadsheet. To get the URL for your spreadsheet, open your spreadsheet and click on the 'Share' button top right. Select 'Publish as web page'. Under 'Sheets to publish', click the 'Start publishing' button. Then, in the first pull-down menu under 'Get link to the published data', select 'RSS'. A url will appear in the box below: copy the portion of it up to 'basic?' and paste it below to replace XXX in href="https://XXXalt=json-in-script". Make sure you don't erase the "alt=json-in-script". -->
+
+<link 	rel="exhibit/data" 
+      	type="application/jsonp"
+      	href="https://spreadsheets.google.com/feeds/list/0AsWj310l_sLTdGtHU0dwSkNKTTl0eC1sMWNiNVFxR0E/od6/public/basic?alt=json-in-script"
+      	ex:converter="googleSpreadsheets" /> 
+
+
+      <!-- And now for our own code -->
+
+      <script language="javascript">
+       
+        var timeline;  // declare the variable to be used later
+        function onLoad() {  // create a new function that will run when the page is done loading
+            
+            var eventSource = new Timeline.DefaultEventSource(0); // some magic to make our data readable later on
+            
+            var theme = Timeline.ClassicTheme.create();  // use a pre-defined theme -- we can change this if we want, but it's not easy
+            theme.event.bubble.width = 320;  // width
+            theme.event.bubble.height = 220; // height
+            var d = Timeline.DateTime.parseGregorianDateTime("1990"); // create a "date" to centre the timeline around  
+                                                                     // dates are complicated for machines!
+            var bandInfos = [           // create two horizontal bands
+                                        // if you want just one, get rid of the second
+                                        // stanza & set width to 100%
+                Timeline.createBandInfo({
+                    width:          "80%", 
+                    intervalUnit:   Timeline.DateTime.YEAR, // divide into years
+                    intervalPixels: 200,
+                    eventSource:    eventSource,
+                    date:           d,   //centre timeline around date "d" defined above
+                    theme:          theme
+                }),
+                Timeline.createBandInfo({
+                    width:          "20%",
+                    showEventText:  false, // show less info here
+                    trackHeight:    0.5,   // make the tracks skinnier
+                    trackGap:       0.2,   // and closer together
+                    intervalUnit:   Timeline.DateTime.DECADE, // divide into decades
+                    intervalPixels: 200,
+                    eventSource:    eventSource,
+                    overview:       true,
+                    date:           d
+                    // theme:          theme
+            })
+
+            ];
+            bandInfos[1].syncWith = 0; // sync the dragging of the 2 bands
+            bandInfos[1].highlight = true; // show the top band portion in the 2nd band
+            bandInfos[1].eventPainter.setLayout(bandInfos[0].eventPainter.getLayout());
+
+         // create the actual timeline object   
+         timeline = Timeline.create(document.getElementById("timeline"), bandInfos, Timeline.HORIZONTAL);
+
+         // and load the data from the file you've created
+         // there are other ways to load data if you want, cf. 
+         // http://code.google.com/p/simile-widgets/wiki/Timeline_EventSources
+         var url = ".";
+         timeline.loadJSON("timeline-data.js", function(json, url) {
+               eventSource.loadJSON(json, url);
+         });
+      }
+      var resizeTimerID = null;
+      function onResize() {  // black magic. just copy it over.
+         if (resizeTimerID == null) {
+            resizeTimerID = window.setTimeout(function() {
+                  resizeTimerID = null;
+                  timeline.layout();
+            }, 500);
+         }
+      }
+      </script>
+   </head>  
+
+   <body id="timeline-essay-page" onload="onLoad();" onresize="onResize();">
+
+         <div id="main">
+
+            <header>
+               <h1>Sample Individual Timeline &amp; Essay</h1>
+               <p>by Put your Name Here</p>
+            </header>
+
+            <!-- Our script will fill this div with the timeline! -->
+            <div id="timeline" class="timeline-default" style="height: 300px;"></div>
+
+            <div class="sidepanel">
+               <div class="sidepanel-links">
+                  <ul>
+                    <!-- link back to the main page -->
+                     <li><a href="../index.html">Popcorn Example</a></li>
+                     <li>Frances' Timeline &amp; Essay</li>
+                     <!-- link to a collaborator's essay and timeline -->
+                     <li><a href="../student2/timeline-example.html">Some other person's Timeline &amp; Essay</a></li>
+                  </ul>
+               </div>
+            </div><!-- END .sidepanel -->
+            
+            <div class="essay">
+               <h2>Sample Essay: Lorem Ipsum</h2>
+               <p>
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id nisl in metus vehicula adipiscing quis eleifend erat. Praesent scelerisque bibendum enim, in convallis neque sollicitudin id. In hac habitasse platea dictumst. Aliquam ut odio non leo ullamcorper aliquam. Sed id tincidunt diam. Quisque nibh est, ullamcorper vitae suscipit in, rhoncus vitae libero. Duis vestibulum imperdiet lorem, nec tempus sapien posuere eu. In posuere lectus at ligula cursus id placerat nulla tristique. Ut eu velit nibh, at facilisis ante. Aenean dignissim urna sit amet augue elementum ac mattis tortor facilisis. Pellentesque turpis arcu, mattis sit amet ultricies vel, interdum at enim. Vivamus enim nunc, blandit et dapibus vel, fermentum in lorem. Suspendisse in ipsum non nunc scelerisque sollicitudin sed nec quam. Suspendisse consequat dapibus nibh eget facilisis. In sagittis, augue id placerat malesuada, sapien tortor dignissim odio, nec dictum nisl enim nec libero.
+               </p>
+             
+            </div>
+            
+         </div><!-- END #main -->
+   </body>
+</html>
