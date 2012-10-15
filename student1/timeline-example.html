@@ -31,8 +31,10 @@
                                         // stanza & set width to 100%
                 Timeline.createBandInfo({
                     width:          "80%", 
+                     trackHeight:    2.6,   // make the tracks skinnier
+                    trackGap:       0.2,   // and closer together
                     intervalUnit:   Timeline.DateTime.YEAR, // divide into years
-                    intervalPixels: 200,
+                    intervalPixels: 100,
                     eventSource:    eventSource,
                     date:           d,   //centre timeline around date "d" defined above
                     theme:          theme
@@ -43,7 +45,7 @@
                     trackHeight:    0.5,   // make the tracks skinnier
                     trackGap:       0.2,   // and closer together
                     intervalUnit:   Timeline.DateTime.DECADE, // divide into decades
-                    intervalPixels: 200,
+                    intervalPixels: 100,
                     eventSource:    eventSource,
                     overview:       true,
                     date:           d

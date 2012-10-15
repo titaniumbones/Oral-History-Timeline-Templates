@@ -6,8 +6,8 @@
 
 // first, set some general parameters
 'dateTimeFormat': 'iso8601', // don't mess with this
-'wikiURL': "http://simile.mit.edu/shelf/", // we should do better with this
-'wikiSection': "Simile Cubism Timeline",   // and with this too.
+//'wikiURL': "http://simile.mit.edu/shelf/", // we should do better with this
+//'wikiSection': "Simile Cubism Timeline",   // and with this too.
 
 
 // second, the actual list of events
@@ -25,11 +25,11 @@
         'description': 'by Lyonel Feininger, American/German Painter, 1871-1956',
         'image': 'http://images.allposters.com/images/AWI/NR096_b.jpg',
         'link': 'http://www.allposters.com/-sp/Barfusserkirche-1924-Posters_i1116895_.htm'
-        }, // after every element but the last one, close the curly brackets and add a comma
+        }, // after every element but the last one, close the curly brackets andd add a comma
 
 
         {'start': '1913',
-        'end': '1929',  // when you put an 'end' date, the event will display as a bar
+        'end': '1916',  // when you put an 'end' date, the event will display as a bar
         'title': 'Three Figures', 
         'description': 'by Kasimir Malevich, Ukrainian Painter, 1878-1935',
         'image': 'http://images.allposters.com/images/BRGPOD/75857_b.jpg',
@@ -38,7 +38,7 @@
 
 
         {'start': '1881',
-        'end': '1953',
+        'end': '1889',
         'title': 'Landschaft bei Montreuil',
         'description': 'by Albert Gleizes, French Painter, 1881-1953',
         'image': 'http://images.allposters.com/images/mer/1336_b.jpg',
@@ -47,6 +47,7 @@
 
 
         {'start': '1920',
+        'end': '1925',
         'title': 'Femme au Miroir',
         'description': 'by Fernand Leger, French Painter, 1881-1955',
         'image': 'http://images.allposters.com/images/AWI/GMR117_b.jpg',
@@ -55,12 +56,20 @@
 
 
         {'start': '1903',
+        'end': '1910',
         'title': 'The Old Guitarist',
         'description': 'by Pablo Picasso, Spanish Painter/Sculptor, 1881-1973',
         'image': 'http://images.allposters.com/images/ESC/AP599_b.jpg',
         'link': 'http://www.allposters.com/-sp/The-Old-Guitarist-c-1903-Posters_i328746_.htm'
         },
 
+ {'start': '1922',
+        'end': '1924',
+        'title': 'A New Guitarist',
+        'description': 'by some other guy, really famous, 1881-1973',
+        'image': 'http://images.allposters.com/images/ESC/AP599_b.jpg',
+        'link': 'http://colorschemedesigner.com/'
+        },
 
         {'start': '1882',
         'end': '1964',
@@ -88,21 +97,6 @@
         },
 
 
-        {'start': '1885',
-        'end': '1925',
-        'title': 'Castor Et Pollux',
-        'description': 'by Roger de la Fresnaye, French Painter, 1885-1925',
-        'image': 'http://images.allposters.com/images/CORPOD/IX001463_b.jpg',
-        'link': 'http://www.allposters.com/-sp/Castor-Et-Pollux-Posters_i831718_.htm'
-        },
-
-
-        {'start': '1912',
-        'title': 'Portrait of Pablo Picasso',
-        'description': 'by Juan Gris, Spanish Painter/Sculptor, 1887-1927',
-        'image': 'http://images.allposters.com/images/BRGPOD/156514_b.jpg',
-        'link': 'http://www.allposters.com/-sp/Portrait-of-Pablo-Picasso-1881-1973-1912-Posters_i1344154_.htm'
-        },
 
 
         {'start': '1891',

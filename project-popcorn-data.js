@@ -37,11 +37,12 @@ document.addEventListener( "DOMContentLoaded", function() {
 
     //this is a long interview, so there are lots of events.  first, a 
     // few that are commented out so you can see how they might be used if you need them
-        <!--.flickr({"id":"flickr","start":25.1,"end":29,"target":"popcorn-container","userid":"78868639@N00","numberofimages":6,"height":"60px", "width":"60px"})-->
-        <!--.twitter({"id":"flickr","start":29.1,"end":34.5,"target":"popcorn-container","src":"#willferrel"})-->
-        <!-- .wikipedia({"id":"wikipedia","start":29.1,"end":36.5,"target":"popcorn-container","lang":"en","title":"Port Angeles","numOfWords":200, src:"http://en.wikipedia.org/wiki/Port_Angeles,_Washington"}) -->
+        // .flickr({"id":"flickr","start":25.1,"end":29,"target":"popcorn-container","userid":"78868639@N00","numberofimages":6,"height":"60px", "width":"60px"})
+        // .twitter({"id":"flickr","start":29.1,"end":34.5,"target":"popcorn-container","src":"#willferrel"})
+        // .wikipedia({"id":"wikipedia","start":29.1,"end":36.5,"target":"popcorn-container","lang":"en","title":"Port Angeles","numOfWords":200, src:"http://en.wikipedia.org/wiki/Port_Angeles,_Washington"})
 
-        .footnote({"id":"home","start":17,"end":34,"target":"popcorn-container","text":"The Kelly family’s first home was on E. 6th Street near Washington Street, on land the parents acquired in 1894 by a government land grant. In 1908 the family moved with their children from Port Angeles to Eden Valley; and perhaps 20 years later Daniel and Mary returned to Port Angeles. "})
+        .image({"id":"picture-of-house","start":00,"end":46,"target":"popcorn-container","src":"http://samadhisoft.com/wp-content/uploads/2008/02/dscn0404sm.JPG"})
+	.footnote({"id":"home","start":17,"end":34,"target":"popcorn-container","text":"The Kelly family’s first home was on E. 6th Street near Washington Street, on land the parents acquired in 1894 by a government land grant. In 1908 the family moved with their children from Port Angeles to Eden Valley; and perhaps 20 years later Daniel and Mary returned to Port Angeles. "})
         .image({"id":"picture-of-house","start":35,"end":46,"target":"popcorn-container","src":"./media/images/pa1900s.jpg"})
         .footnote({start:35, end:46, target:"popcorn-container",text:"The house is here in this image -- somewhere!"})   
         .googlemap({"id":"first map","start":47,"end":51,"target":"popcorn-container","type":"TERRAIN","zoom":7,"location":"Port Angeles"})
