@@ -8,21 +8,38 @@
    <head>
       <meta charset="UTF-8" />
       <title>Sample Group Project TEST: Popcorn.js</title>
-      <script src="http://code.jquery.com/jquery-1.4.4.js"></script>
+      <!-- jQuery is a framework that makes lots of things easier in Javascript 
+           You can learn how to use it at Codecademy:
+           http://www.codecademy.com/tracks/jquery
+           We use it just a little bit in the javascript file, but you can 
+           fancy up your page with more tricks if you like
+        -->
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+
+      <!-- tabletop makes it much easier to work with data from google docs.  
+           if you hand-coded your javascript you wouldn't need this library.  
+        -->
+      <script type="text/javascript" src="assets/js/tabletop.js"></script>
 
       <!-- This <link> element controls the style elements for the page.
            It controls some important elements of presentation, like where
-           the sidebar ends up o n the page.  -->
-      <link rel="stylesheet" type="text/css" media="all" href="style.css" />
+           the sidebar ends up on the page, how wide images in that box can be, 
+           and so forth.
+        -->
+      <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css" />
 
       <!-- The web page starts by loading the complete 
-           popcorn library from the popcornjs website -->
-      <script src="popcorn-complete.js"></script>
+           popcorn library -->
+      <script src="assets/js/popcorn-complete.js"></script>
+      <!-- normally we would load the code directly from the popcorn website, but the standard library won't work for 
+           editing files directly on your computer.  So instead we've included a lightly modified version in 
+           this project template -->
+      <!-- <script src="http://popcornjs.org/code/dist/popcorn-complete.min.js"></script> -->
 
       <!-- Then we also include a small "handmade" script that makes use 
            of commands that are defined in the first script. This is what you'll
-           edit to create new popcorn events in this page.-->
-      <script src="project-popcorn-data.js" language="javascript"></script>
+           edit if you want to perosnalize your code.-->
+      <script src="assets/js/project-popcorn-data.js" language="javascript"></script>
    </head>  
 
 
@@ -30,24 +47,26 @@
    <!-- The 'class' attribute might affect how the page is displayed, depending on 
         what's in the css file linked to in the <head> section -->
    <body class="home page page-id-115 page-template page-template-page-home-php">
-     <!-- A 'div' element is just a 'division' of the page.  the id can be 
-       important for javascript, though-->
+     <!-- A 'div' element is just a 'division' of the page.  But the id can be 
+       important -- we use a div id to determine where to put popcorn 
+       events, for instance.
+       -->
          <div id="main">
 
-           <!-- using the new HTML5 'header' element -->
+           <!-- using the new HTML5 'header' element to contain our title. -->
             <header>
                <h1>Title</h1>
                <p>byline</p>
             </header>
 
-            <!-- this is our audio div.  It's really important -->
+            <!-- this is our audio div.  It's really important.
+                 notice that it has two "source" elements inside it.
+                 That's because -->
              <audio id="media" controls="controls">
-               <source src="media/audio/editededna.mp3" type="audio/mp3" />
-               <source src="media/audio/editededna.ogg" type="audio/ogg" />
+               <source src="assets/audio/the-fall-excerpt.mp3" type="audio/mp3" />
+               <source src="assets/audio/the-fall-excerpt.ogg" type="audio/ogg" />
             </audio>
             
-           
-
             <div class="sidepanel">
               <!-- This is the div where all the popcorn action will hapen -->
                <div id="popcorn-container">
@@ -68,8 +87,9 @@
             
             <div class="essay">
                <h2>Subtitle (Person's name and dates)</h2>
-               <p>
-               <img src="media/images/edna1.png" /></p>
+               <!-- This is a nice place to put a small profile image of the person, if they don't mind you doing so. -->
+               <!-- the size & border are controlled by css -- note the class "profile".  So you can change those. -->
+               <img class="profile" src="assets/images/apples-apple-pie_w725_h484.jpg" />
                <p>
                  This part of the web page is a general introduction to the person and their life, written by the group as a whole.  
                </p>

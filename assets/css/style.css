@@ -49,7 +49,14 @@ body {
    padding: 40px 0 0 0;
 }
 
-/* VIDEO */
+/* PROFILE IMAGES */
+img.profile {
+    max-height: 75px;
+    border: double;
+    float:left;
+    margin-right: 5px;
+}
+/* MEDIA */
 #media {
    width: 430px;
    margin: 15px 0;
@@ -95,4 +102,13 @@ body {
 body#timeline-essay-page .essay {
    width: auto;
 }
+
+/* TIMELINE STYLES */
+
+/* Uncomment this stanza to get rid of the annoying timestamps at the bottom of the bubbles */
+/* .timeline-event-bubble-time {
+ *     visibility:hidden; 
+ *     height:0;
+ * } */
+
 
