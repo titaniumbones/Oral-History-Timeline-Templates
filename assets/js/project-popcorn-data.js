@@ -51,8 +51,10 @@ document.addEventListener( "DOMContentLoaded", function() {
             // use the plugin column to create a popcorn event of type "plugin"
             pop[data[i].plugin] ({
                 "id" : data[i].id,
-                "start" : parseInt(data[i].start), // we have to take the spreadsheet string and turn it into an integer...
-                "end" : parseInt(data[i].end),
+                // "start" : parseInt(data[i].start), // we have to take the spreadsheet string and turn it into an integer...
+                // "end" : parseInt(data[i].end),
+                "start" :getTimestampInSeconds(data[i].start), // we have to take the spreadsheet string and turn it into a number of seconds
+                "end" : getTimestampInSeconds(data[i].end),
                 "target" : data[i].target,
                 "text" : data[i].text,
                 "src" : data[i].src,
@@ -64,9 +66,46 @@ document.addEventListener( "DOMContentLoaded", function() {
 
             // this is another debugging line -- if things aren'tworking right you can uncomment it & see what's going wrong
             // in the console.  
-            // console.log(data[i]);
+            console.log(pop);
         };
     }
+    
+    // one more function that allows us to write start and end times in human-friendly format like 1:05:14.6
+    // stolen from Atul's cool instappin' project from 2011:
+    // https://github.com/toolness/instapoppin/blob/gh-pages/instapoppin.js
+    // added some comments so you can follow it. 
+    function getTimestampInSeconds(ts) {
+        if (ts.length == 0)
+            return 0;
+        var timeParts = ts.split(':'); // divides the timecode up into parts and returns an array of the parts.
+        realTimeParts = [];
+        timeParts.forEach(function(number) { // for each part of the array, run this function
+            if (number.length == 0)
+                number = '00';
+            var floatNumber = parseFloat(number); // turn the array part into a 'float', which is a number with a decimal point
+            if (isNaN(floatNumber))  // if it is not a number you're in trouble
+                throw new ParseError('unable to parse time: ' + ts);
+            realTimeParts.push(floatNumber);
+        });
+        switch (realTimeParts.length) {  // the 'switch/case' structure performs a different action depending on the length of the array
+        case 1:
+            // It's a pure seconds-based offset.
+            return realTimeParts[0];
+            
+        case 2:
+            // It's in MM:SS format.
+            return realTimeParts[0] * 60 + realTimeParts[1];
+            
+        case 3:
+            // It's in HH:MM:SS format.
+            return ((realTimeParts[0] * 60) + realTimeParts[1]) * 60 +
+                realTimeParts[2];
+            
+        default:
+            throw new ParseError('too many colons in time: ' + ts);
+        }
+    }
+  
     // If you want to add any events by hand you can add them here with a "pop.googlemap ({})", etc.  
 });
 
