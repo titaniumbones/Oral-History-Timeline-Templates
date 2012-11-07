@@ -10,7 +10,7 @@
       <link rel="stylesheet" type="text/css" media="all" href="assets/css/style.css" />
 
       <!-- load the SIMILE timeline code directly from MIT -->
-      <script src="http://simile.mit.edu/timeline/api/timeline-api.js" type="text/javascript"></script>
+      <script src="http://api.simile-widgets.org/timeline/2.3.1/timeline-api.js?bundle=true" type="text/javascript"></script>
 
       <!-- We'll need tabletop again; we're using the same trick that we used in Popcorn  -->
       <script type="text/javascript" src="assets/js/tabletop.js"></script>
@@ -83,19 +83,19 @@
                                         // if you want just one, get rid of the second
                                         // stanza & set width to 100%
             Timeline.createBandInfo({
-                width:          "85%", 
-                intervalUnit:   Timeline.DateTime.DECADE, // divide into years
+                width:          "75%", 
+                intervalUnit:   Timeline.DateTime.YEAR, // divide into years
                 intervalPixels: 200,
                 eventSource:    eventSource,
                 date:           d,   //centre timeline around date "d" defined above
                 theme:          theme
             }),
             Timeline.createBandInfo({
-                width:          "15%",
+                width:          "25%",
                 showEventText:  false, // show less info here
                 trackHeight:    0.5,   // make the tracks skinnier
                 trackGap:       0.2,   // and closer together
-                intervalUnit:   Timeline.DateTime.CENTURY, // divide into decades
+                intervalUnit:   Timeline.DateTime.DECADE, // divide into decades
                 intervalPixels: 200,
                 eventSource:    eventSource,
                 overview:       true,
@@ -144,7 +144,7 @@
             </header>
 
             <!-- Our script will fill this div with the timeline! -->
-            <div id="timeline" class="timeline-default" style="height: 300px;"></div>
+            <div id="timeline" class="timeline-default" style="height: 200px;"></div>
 
             <div class="sidepanel">
                <div class="sidepanel-links">
